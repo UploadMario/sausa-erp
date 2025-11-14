@@ -1,0 +1,19 @@
+<div class="mb-3">
+    <label for="{{ $name }}" class="form-label fw-semibold">
+        {{ $label }}
+    </label>
+
+    <textarea
+        name="{{ $name }}"
+        id="{{ $name }}"
+        rows="{{ $rows ?? 3 }}"
+        class="form-control @error($name) is-invalid @enderror"
+        {{ $attributes ?? '' }}
+    >{{ old($name, $value ?? '') }}</textarea>
+
+    @error($name)
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+    @enderror
+</div>
